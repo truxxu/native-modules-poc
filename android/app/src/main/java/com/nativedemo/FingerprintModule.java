@@ -26,7 +26,8 @@ public class FingerprintModule extends ReactContextBaseJavaModule {
     @ReactMethod    
     public void createFingerprintEvent(Promise promise) {
         try {
-            promise.resolve(fpdCreate.generateFingerpintKey(reactContext).toString());
+            String fingerprint = fpdCreate.generateFingerpintKey(reactContext).toString();
+            promise.resolve(fingerprint);
         } catch (Exception e) {
             promise.reject(e);
         }
